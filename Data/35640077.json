@@ -39,6 +39,14 @@
       "Date": "221007",
       "Time": "2317",
       "Cnt": "85243"
+    },
+    {
+      "Date": "221019",
+      "Time": "1625",
+      "Cnt": "92539",
+      "listnerCnt": "309497",
+      "StreamCount": "26.9M",
+      "StreamUser": "1.8M"
     }
   ]
 }
