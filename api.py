@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from starlette.middleware.cors import CORSMiddleware
 import json
 from pydantic import BaseModel
+import newAlbum
 
 app = FastAPI()
 favicon_path = 'favicon.ico'
@@ -34,6 +35,16 @@ async def bb(name: str):
             temp.append(song)
     
     return temp
+
+@app.get("/newalbum")
+async def albumlist():
+  data = newAlbum.newAlbum()
+  return data
+
+@app.get("/albuminfo")
+async def albuminfo(id: int):
+  data = newAlbum.albumInfo(id)
+  return data
 
 @app.get("/{song_num}")
 async def user_data(song_num: int):
