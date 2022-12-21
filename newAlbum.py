@@ -6,11 +6,14 @@ def newAlbum():
   endPoint = "https://m2.melon.com/new/album/list.json?areaFlg=A"
   response = requests.get(endPoint, headers=headers)
   data = response.json()
-
-  return data
-
-def albumInfo(id):
-  endPoint = 'https://m2.melon.com/m6/v4/album/info.json?albumId=' + str(id)
-  response = requests.get(endPoint, headers=headers)
-  data = response.json()
-  return data
+  albumlist = data["response"]["ALBUMLIST"][0:12]
+  
+  albuminfo = []
+  for album in albumlist:
+    id = album["ALBUMID"]
+    endPoint = 'https://m2.melon.com/m6/v4/album/info.json?albumId=' + str(id)
+    response = requests.get(endPoint, headers=headers)
+    data = response.json()
+    albuminfo.append(data["response"])
+    
+  return albuminfo

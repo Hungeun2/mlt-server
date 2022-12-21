@@ -41,11 +41,6 @@ async def albumlist():
   data = newAlbum.newAlbum()
   return data
 
-@app.get("/albuminfo")
-async def albuminfo(id: int):
-  data = newAlbum.albumInfo(id)
-  return data
-
 @app.get("/{song_num}")
 async def user_data(song_num: int):
   return FileResponse('./Data/'+str(song_num)+'.json')
